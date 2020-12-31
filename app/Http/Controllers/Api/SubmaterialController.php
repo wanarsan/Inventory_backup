@@ -17,8 +17,10 @@ class SubmaterialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        
+    {   $idd = 115;
+        // $material = Materials::all();
+        $material = sub_materials::where('product_ref', '!=' ,$idd)->get();
+        return response()->json($material);
     }
 
     /**
