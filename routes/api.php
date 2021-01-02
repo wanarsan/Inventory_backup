@@ -36,4 +36,6 @@ Route::put('editmaterial/{id}', [App\Http\Controllers\Api\MaterialController::cl
 Route::get('getsubmaterial/{product_ref}', [App\Http\Controllers\Api\SubmaterialController::class, 'show']);
 Route::delete('subdelete/{contents}', [App\Http\Controllers\Api\SubmaterialController::class, 'destroy']);
 // Notice!!
-Route::get('getsublistmaterial', [App\Http\Controllers\Api\SubmaterialController::class, 'index']);
+Route::put('getsublistmaterial/{id}', [App\Http\Controllers\Api\SubmaterialController::class, 'store']);
+
+Route::get('getsubmateriallist/{id}', [App\Http\Controllers\Api\SubmaterialController::class, 'edit']);

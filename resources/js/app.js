@@ -35,6 +35,8 @@ Vue.component('product-component', require('./components/product/index.vue').def
 Vue.component('edit-component', require('./components/product/edit.vue').default);
 Vue.component('material-component', require('./components/material/index.vue').default);
 Vue.component('materialedit-component', require('./components/material/edit.vue').default);
+Vue.component('home-component', require('./components/home.vue').default);
+Vue.component('manage-component', require('./components/manage/index.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

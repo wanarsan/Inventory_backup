@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Materials;
 use App\Models\sub_materials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Log;
 use SebastianBergmann\Environment\Console;
+
+use function PHPUnit\Framework\isEmpty;
+
 class SubmaterialController extends Controller
 {
     /**
@@ -17,11 +21,9 @@ class SubmaterialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $idd = 115;
-        // $material = Materials::all();
-        $material = sub_materials::where('product_ref', '!=' ,$idd)->get();
-        return response()->json($material);
-    }
+    {   
+        
+    }   
 
     /**
      * Show the form for creating a new resource.
@@ -41,13 +43,21 @@ class SubmaterialController extends Controller
      */
     public function store(Request $request)
     {
-        // $material = $request->submaterial;
-        // $product = $request->submaterial;
-        //         $blogmaterial = [];
-        //         foreach($material as $m){
-        //         array_push($blogmaterial,['submaterial'=>$m,'product_ref'=>$product->id]);
-        //         }
-        //         sub_materials::insert($blogmaterial);
+
+       $check = sub_materials::where('submaterial','=', $request->input('contents_adds'))->where('product_ref','=', $request->id)->first();
+
+       if($check === null){
+               
+
+                $material = $request->contents_adds;
+                $blogmaterial = []; 
+                foreach($material as $m){
+                array_push($blogmaterial,['submaterial'=>$m,'product_ref'=>$request->id]);
+                }
+                sub_materials::insert($blogmaterial);
+               
+        }
+       
     }
 
     /**
@@ -73,6 +83,10 @@ class SubmaterialController extends Controller
     public function edit($id)
     {
         
+      $material = sub_materials::where('product_ref',$id)->get('submaterial'); 
+       $sub = Materials::select('name')->whereNotIn('name',$material)->get(); 
+      
+        return response()->json($sub);
     }
 
     /**

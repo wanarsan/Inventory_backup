@@ -51,6 +51,7 @@ class ProductController extends Controller
                 'price' => $request->price, 
                 'quantity' => $request->quantity,
                 ]);
+                
                 $material = $request->submaterial;
                 $blogmaterial = [];
                 foreach($material as $m){

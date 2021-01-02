@@ -27,7 +27,7 @@
               <div class="col">
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <span class="input-group-text" id="basic-addon1">Name</span>
                   </div>
                   <input
                     required
@@ -42,7 +42,7 @@
                 </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <span class="input-group-text" id="basic-addon1">Code</span>
                   </div>
                   <input
                     required
@@ -57,7 +57,9 @@
                 </div>
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <span class="input-group-text" id="basic-addon1"
+                      >Price</span
+                    >
                   </div>
                   <input
                     required
@@ -73,7 +75,9 @@
 
                 <div class="input-group mt-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <span class="input-group-text" id="basic-addon1"
+                      >Quantity</span
+                    >
                   </div>
                   <input
                     required
@@ -87,25 +91,25 @@
                   />
                 </div>
               </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button
-                  type="submit"
-                  v-on:click="addproduct()"
-                  class="btn btn-success"
-                >
-                  Add Product
-                </button>
-              </div>
+
+              <button
+                type="button"
+                class="btn btn-secondary ml-3 mt-3"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                v-on:click="addproduct()"
+                class="btn btn-success mt-3"
+              >
+                Add Product
+              </button>
             </form>
             <div class="col">
-              <div class="input-group mt-3 mb-3">
+              <label class="mt-3">Add Materials</label>
+              <div class="input-group mb-3">
                 <select
                   class="form-control"
                   required

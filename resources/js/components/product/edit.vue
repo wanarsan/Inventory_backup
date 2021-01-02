@@ -10,7 +10,7 @@
             <div class="col">
               <div class="input-group mt-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <span class="input-group-text" id="basic-addon1">Name</span>
                 </div>
                 <input
                   type="text"
@@ -23,7 +23,7 @@
               </div>
               <div class="input-group mt-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <span class="input-group-text" id="basic-addon1">Code</span>
                 </div>
                 <input
                   v-model="code"
@@ -38,7 +38,7 @@
               </div>
               <div class="input-group mt-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <span class="input-group-text" id="basic-addon1">Price</span>
                 </div>
                 <input
                   v-model="price"
@@ -53,7 +53,9 @@
               </div>
               <div class="input-group mt-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <span class="input-group-text" id="basic-addon1"
+                    >Quantity</span
+                  >
                 </div>
                 <input
                   v-model="quantity"
@@ -95,7 +97,7 @@
               >
                 <option
                   v-for="e_material in e_materials"
-                  :key="e_material.nane"
+                  :key="e_material.submaterial"
                 >
                   {{ e_material.name }}
                 </option>
@@ -183,7 +185,9 @@ export default {
   props: ["id"],
   data() {
     return {
+      ids: "",
       count: 0,
+      countadd: -1,
       name: "",
       code: "",
       price: "",
@@ -221,7 +225,7 @@ export default {
       });
     },
     getmateriallist() {
-      axios.get("/api/getmaterial").then((response) => {
+      axios.get("/api/getsubmateriallist/" + this.id).then((response) => {
         this.e_materials = response.data;
       });
     },
@@ -238,6 +242,9 @@ export default {
           axios.delete("/api/subdelete/" + this.contents[i][0]);
         }
       } catch {}
+      axios.put("/api/getsublistmaterial/" + this.id, {
+        contents_adds: this.contents_adds,
+      });
     },
     setVal(subid, submaterial) {
       this.subid = subid;
@@ -250,6 +257,8 @@ export default {
       this.contents_adds.push(this.product_material);
       this.contents_adds = _.uniq(this.contents_adds);
       // this.addsubmaterial();
+      this.countadd++;
+      console.log("+1");
     },
     addTableRow() {
       this.contents.push([this.subid, this.soft_del]);

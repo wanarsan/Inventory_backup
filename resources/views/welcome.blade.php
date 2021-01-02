@@ -11,11 +11,11 @@
         <li class="nav-item mr-3">
         <router-link to='/product'>Product</router-link>
         </li>
-        <li>
         <li class="nav-item mr-3">
         <router-link to='/material'>Material</router-link>
         </li>
-        <li>
+        <li class="nav-item mr-3">
+        <router-link to='/manage'>Manage</router-link>
         </li>
         </ul>
     </div>  
