@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-// Route::get('getproduct', [App\Http\Controllers\Api\ProductController::class, 'index']);
-// Route::post('/addproduct', [App\Http\Controllers\Api\ProductController::class, 'store']);
 
 Route::get('getproduct', [App\Http\Controllers\Api\ProductController::class, 'index']);
 Route::post('addproduct', [App\Http\Controllers\Api\ProductController::class, 'store']);
@@ -39,3 +34,6 @@ Route::delete('subdelete/{contents}', [App\Http\Controllers\Api\SubmaterialContr
 Route::put('getsublistmaterial/{id}', [App\Http\Controllers\Api\SubmaterialController::class, 'store']);
 
 Route::get('getsubmateriallist/{id}', [App\Http\Controllers\Api\SubmaterialController::class, 'edit']);
+
+
+
