@@ -6,6 +6,7 @@ import Materialedit from './components/material/edit.vue';
 import home from './components/home.vue';
 import manage from './components/manage/index.vue';
 
+
 export default{
     mode:'history',
     routes:[
@@ -27,6 +28,5 @@ export default{
         {
             path:'/manage',component:manage
         },
-       
     ]
 }
